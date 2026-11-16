@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Muhammad Noman — Backend Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+:root{color-scheme:dark;--bg:#07060c;--fg:#f2efff;--mut:#9a95b5;--a:#8b5cf6;--b:#ff4fa3;--c:#22d3ee;--glass:rgba(255,255,255,.07);--line:rgba(255,255,255,.16);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 "Space Grotesk",system-ui,-apple-system,Segoe UI,sans-serif;overflow-x:hidden}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.veil{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at 70% 50%,transparent 20%,rgba(7,6,12,.75) 100%)}
+nav{position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);right:5vw;z-index:20;display:flex;gap:4px;padding:5px;border:1px solid var(--line);border-radius:99px;background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+nav a{color:var(--fg);text-decoration:none;font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:8px 14px;border-radius:99px}
+nav a:last-child{background:var(--fg);color:var(--bg)}
+.logo{position:fixed;top:calc(env(safe-area-inset-top,0px) + 22px);left:5vw;z-index:20;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+main{position:relative;z-index:5}
+.s{min-height:100svh;display:flex;align-items:center;padding:110px 6vw 80px}
+.in{max-width:560px;width:100%}
+.eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--c);margin-bottom:18px}
+h1{font-size:clamp(46px,9vw,104px);line-height:.95;font-weight:700;letter-spacing:-.03em}
+h1 span{display:inline-block}
+h2{font-size:clamp(32px,5vw,56px);line-height:1.05;font-weight:700;letter-spacing:-.02em;margin-bottom:18px;display:inline-block}
+.grad{background:linear-gradient(90deg,var(--a),var(--b),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+p.lead{color:var(--mut);font-size:clamp(16px,1.6vw,19px);margin-top:22px;max-width:46ch}
+.hint{margin-top:40px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut)}
+.hint::after{content:"";display:block;width:1px;height:46px;margin-top:10px;background:linear-gradient(var(--fg),transparent);animation:dr 1.8s infinite}
+@keyframes dr{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.stats{display:flex;gap:30px;margin-top:30px;flex-wrap:wrap}
+.stats b{display:block;font-size:34px;line-height:1}
+.stats small{color:var(--mut);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.cards{display:grid;gap:16px;margin-top:26px}
+.card{padding:22px;border:1px solid var(--line);border-radius:20px;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:transform .25s,border-color .25s;transform-style:preserve-3d}
+.card:hover{border-color:rgba(255,255,255,.4)}
+.card h3{font-size:20px;margin-bottom:6px}
+.card p{color:var(--mut);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tags i,.chips i{font-style:normal;font-size:12px;padding:4px 10px;border:1px solid var(--line);border-radius:99px;color:var(--fg)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chips i{padding:8px 14px;font-size:14px;background:var(--glass)}
+.btn{display:inline-block;margin:26px 12px 0 0;padding:14px 26px;border-radius:99px;text-decoration:none;font-weight:500;color:var(--bg);background:var(--fg)}
+.btn.o{background:transparent;color:var(--fg);border:1px solid var(--line)}
+.card ul{margin:10px 0 0 18px;color:var(--mut);font-size:14px}.card li{margin:5px 0}.card span.d{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
+footer{position:relative;z-index:5;padding:30px 6vw 50px;color:var(--mut);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.gl{animation:gl .7s steps(2) 1}
+@keyframes gl{0%{text-shadow:4px 0 var(--b),-4px 0 var(--c);transform:translateX(-6px) skewX(-6deg)}25%{text-shadow:-4px 0 var(--b),4px 0 var(--c);transform:translateX(5px)}50%{text-shadow:3px 0 var(--c),-3px 0 var(--b);transform:translateX(-3px) skewX(4deg)}100%{text-shadow:none;transform:none}}
+@media(max-width:700px){nav a{padding:8px 10px;font-size:10px}.logo{display:none}.veil{background:rgba(7,6,12,.45)}}
+@media(prefers-reduced-motion:reduce){.gl,.hint::after{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas><div class="veil"></div>
+<div class="logo">M / N — 2026</div>
+<nav><a href="#work">Work</a><a href="#stack">Stack</a><a href="#contact">Contact</a></nav>
+
+<main>
+<section class="s" id="hero"><div class="in">
+  <div class="eyebrow">Backend Engineer · Islamabad</div>
+  <h1><span>Muhammad</span> <span class="grad">Noman</span></h1>
+  <p class="lead">I build APIs, cloud infrastructure and AI-powered platforms that stay fast when traffic doesn’t.</p>
+  <div class="hint">Scroll</div>
+</div></section>
+
+<section class="s" id="about"><div class="in r">
+  <div class="eyebrow">About</div>
+  <h2>Systems that <span class="grad">hold up.</span></h2>
+  <p class="lead">Three-plus years shipping production backends with Node.js and TypeScript, from schema design to Kubernetes deploys. I like owning a system end to end: the API, the database, the pipeline and the dashboards that tell me when something breaks.</p>
+  <div class="stats"><div><b>3+</b><small>Years</small></div><div><b>EKS</b><small>Prod infra</small></div><div><b>BSc</b><small>Comp. Science</small></div></div>
+</div></section>
+
+<section class="s" id="exp"><div class="in r">
+  <div class="eyebrow">Experience</div>
+  <h2>Where I’ve <span class="grad">worked.</span></h2>
+  <div class="cards">
+    <div class="card"><span class="d">Mar 2024 – Present</span><h3>Software Engineer, Voultrex</h3><ul><li>Sole backend owner of an AI hotel booking platform with Amadeus GDS and OpenAI integrations.</li><li>Built retry and session-recovery logic so bookings survive third-party API failures.</li><li>Fixed PostgreSQL bottlenecks with indexes and JOIN tuning, verified with EXPLAIN ANALYZE.</li><li>Ran production AWS (EC2, ALB, RDS, S3) with Docker and GitHub Actions CI/CD.</li></ul></div>
+    <div class="card"><span class="d">Sep 2022 – Oct 2023</span><h3>Software Engineer, Saasteller</h3><ul><li>Built the full backend of an Amazon-style marketplace: catalog, search, cart, checkout, auth.</li><li>Shipped the seller dashboard in Next.js and deployed everything on AWS.</li></ul></div>
+  </div>
+</div></section>
+
+<section class="s" id="work"><div class="in r">
+  <div class="eyebrow">Selected work</div>
+  <h2>Things I’ve <span class="grad">shipped.</span></h2>
+  <div class="cards">
+    <div class="card"><h3>AI Hotel Booking Platform</h3><p>Sole backend owner. Live Amadeus pricing blended with OpenAI recommendations, under real booking traffic.</p><div class="tags"><i>Node.js</i><i>PostgreSQL</i><i>Amadeus GDS</i><i>OpenAI</i></div></div>
+    <div class="card"><h3>Logistics Brokerage Platform</h3><p>Freelance build of a brokerage platform for a UK-based client.</p><div class="tags"><i>Node.js</i><i>TypeScript</i><i>PostgreSQL</i></div></div>
+    <div class="card"><h3>Multi-vendor E-commerce</h3><p>Shopify-style marketplace with storefront and back office.</p><div class="tags"><i>Express</i><i>PostgreSQL</i><i>Docker</i></div></div>
+    <div class="card"><h3>AI DevOps Agent</h3><p>Monitors and repairs Kubernetes workloads in plain English. LangGraph ReAct on AWS Bedrock AgentCore and EKS, with an approval gate for restarts.</p><div class="tags"><i>Python</i><i>LangGraph</i><i>Bedrock</i><i>EKS</i></div></div>
+  </div>
+</div></section>
+
+<section class="s" id="stack"><div class="in r">
+  <div class="eyebrow">Toolbox</div>
+  <h2>Code to <span class="grad">cluster.</span></h2>
+  <p class="lead">Backend first, with enough DevOps to run what I build.</p>
+  <div class="chips"><i>Node.js</i><i>TypeScript</i><i>Express.js</i><i>NestJS</i><i>PostgreSQL</i><i>Redis</i><i>Docker</i><i>Kubernetes</i><i>Terraform</i><i>ArgoCD</i><i>Helm</i><i>Prometheus</i><i>Grafana</i><i>GitHub Actions</i></div>
+</div></section>
+
+<section class="s" id="contact"><div class="in r">
+  <div class="eyebrow">Contact</div>
+  <h2>Let’s build <span class="grad">something.</span></h2>
+  <p class="lead">Open to remote backend roles and select freelance work.</p>
+  <a class="btn" href="mailto:nomankhangandapur345@gmail.com">Say hello</a><a class="btn o" href="https://claude.ai/artifact/S7GXq4kUxxxAeb7WX4WgVB" target="_blank" rel="noopener">View CV</a><a class="btn o" href="https://github.com/nomankhan1012" target="_blank" rel="noopener">GitHub</a>
+</div></section>
+</main>
+<footer>© 2026 Muhammad Noman</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(window.gsap&&window.ScrollTrigger){
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from("#hero h1 span",{y:80,opacity:0,duration:1.1,stagger:.12,ease:"power4.out",delay:.4});
+  gsap.from("#hero .eyebrow,#hero .lead,#hero .hint",{y:20,opacity:0,duration:1,stagger:.15,delay:.8});
+  document.querySelectorAll(".r").forEach(function(el){
+    gsap.from(el.children,{y:50,opacity:0,duration:.9,stagger:.1,ease:"power3.out",scrollTrigger:{trigger:el,start:"top 75%"}});
+    var h=el.querySelector("h2");
+    ScrollTrigger.create({trigger:el,start:"top 70%",onEnter:function(){if(reduce)return;h.classList.add("gl");setTimeout(function(){h.classList.remove("gl")},750)}});
+  });
+}
+document.querySelectorAll(".card").forEach(function(c){
+  c.addEventListener("pointermove",function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform="perspective(700px) rotateY("+x*9+"deg) rotateX("+-y*9+"deg) translateZ(6px)"});
+  c.addEventListener("pointerleave",function(){c.style.transform=""});
+});
+
+if(!window.THREE)return;
+var cv=document.getElementById("gl"),R=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
+R.setPixelRatio(Math.min(devicePixelRatio,2));
+var S=new THREE.Scene(),C=new THREE.PerspectiveCamera(55,1,.1,100);C.position.z=6;
+var G=84,N=G*G,TAU=Math.PI*2;
+function mk(f){var a=new Float32Array(N*3);for(var i=0;i<N;i++){var p=f(i);a[i*3]=p[0];a[i*3+1]=p[1];a[i*3+2]=p[2]}return a}
+var shapes=[
+ mk(function(i){var y=1-2*(i+.5)/N,r=Math.sqrt(1-y*y),t=i*2.399963;return[Math.cos(t)*r*2,y*2,Math.sin(t)*r*2]}),
+ mk(function(i){var u=Math.random()*TAU,v=Math.random()*TAU,R0=1.9,r=.7;return[(R0+r*Math.cos(v))*Math.cos(u),r*Math.sin(v)*1.2,(R0+r*Math.cos(v))*Math.sin(u)]}),
+ mk(function(i){var k=i%2,t=(i/N)*TAU*4,j=Math.random()*.18;return[Math.cos(t+k*Math.PI)*1.2+j,(i/N-.5)*6,Math.sin(t+k*Math.PI)*1.2+j]}),
+ mk(function(i){var x=i%G,z=Math.floor(i/G);return[(x/G-.5)*6,Math.sin(x*.4)*Math.cos(z*.4)*.5,(z/G-.5)*6]}),
+ mk(function(i){var t=Math.random()*TAU,d=1+Math.sin(t)*Math.sin(t),j=Math.random();return[Math.cos(t)/d*3.2,Math.sin(t)*Math.cos(t)/d*3.2,(j-.5)*.7]})
+];
+var scatter=mk(function(){return[(Math.random()-.5)*14,(Math.random()-.5)*14,(Math.random()-.5)*14]});
+var pos=new Float32Array(scatter),col=new Float32Array(N*3),cA=new THREE.Color("#8b5cf6"),cB=new THREE.Color("#ff4fa3"),cC=new THREE.Color("#22d3ee"),tc=new THREE.Color();
+for(var i=0;i<N;i++){var f=i/N;tc.copy(f<.5?cA.clone().lerp(cB,f*2):cB.clone().lerp(cC,(f-.5)*2));col[i*3]=tc.r;col[i*3+1]=tc.g;col[i*3+2]=tc.b}
+var geo=new THREE.BufferGeometry();geo.setAttribute("position",new THREE.BufferAttribute(pos,3));geo.setAttribute("color",new THREE.BufferAttribute(col,3));
+var pts=new THREE.Points(geo,new THREE.PointsMaterial({size:.032,vertexColors:true,transparent:true,opacity:.95,blending:THREE.AdditiveBlending,depthWrite:false}));
+var grp=new THREE.Group();grp.add(pts);S.add(grp);
+function size(){var w=innerWidth,h=innerHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix();grp.position.x=w>800?1.9:0;grp.scale.setScalar(w>800?1:.75)}
+size();addEventListener("resize",size);
+var mx=0,my=0;addEventListener("pointermove",function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+var t0=performance.now(),sp=0;
+function ss(x){return x*x*(3-2*x)}
+function loop(){
+  var t=(performance.now()-t0)/1000,intro=ss(Math.min(1,Math.max(0,(t-.3)/2.6)));
+  var max=Math.max(1,document.documentElement.scrollHeight-innerHeight),tp=Math.min(1,scrollY/max)*(shapes.length-1);
+  sp+=(tp-sp)*.06;
+  var i0=Math.min(shapes.length-2,Math.floor(sp)),m=ss(sp-i0),A=shapes[i0],B=shapes[i0+1];
+  for(var i=0;i<N*3;i++){
+    var s=A[i]+(B[i]-A[i])*m;
+    pos[i]=scatter[i]+(s-scatter[i])*intro+(reduce?0:Math.sin(t*.8+i)*.012);
+  }
+  geo.attributes.position.needsUpdate=true;
+  grp.rotation.y=t*.12+mx*.6+sp*.5;grp.rotation.x=my*.35;
+  R.render(S,C);requestAnimationFrame(loop);
+}
+loop();
+})();
+</script>
+</body>
+</html>
